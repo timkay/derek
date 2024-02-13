@@ -1,9 +1,14 @@
-def quicksort(array, bottom, top):
+def quicksort(array, bottom = 0, top = None):
+        if top == None:
+                top = len(array) - 1
         if bottom >= top or bottom < 0: 
                 return
         p = partition(array, bottom, top) 
-        quicksort(array, bottom, p - 1)
-        quicksort(array, p + 1, top)
+        try:
+                quicksort(array, bottom, p - 1)
+                quicksort(array, p + 1, top)
+        except RecursionError:
+                pass
 
 def partition(array, bottom, top):
         pivot = array[top]
