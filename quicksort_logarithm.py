@@ -1,16 +1,19 @@
-def quicksort(array, bottom = 0, top = None):
+maxdepth = 0
+def quicksort(array, bottom = 0, top = None, depth = 0):
+        global maxdepth
+        if maxdepth < depth: maxdepth = depth
         if top == None:
                 top = len(array) - 1
-        if bottom >= top or bottom < 0: 
+        if bottom >= top or bottom < 0 or all(i == array[top] for i in array[bottom:top]): 
                 return
-        p = partition(array, bottom, top) 
+        p = _partition(array, bottom, top) 
         try:
-                quicksort(array, bottom, p - 1)
-                quicksort(array, p + 1, top)
+                quicksort(array, bottom, p - 1, depth + 1)
+                quicksort(array, p + 1, top, depth + 1)
         except RecursionError:
                 pass
 
-def partition(array, bottom, top):
+def _partition(array, bottom, top):
         pivot = array[top]
         i = bottom - 1
         for j in range(bottom, top):
