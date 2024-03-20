@@ -63,8 +63,9 @@ class BinTree():
             else:
                 node = node.right
 
+print('start')
 tree = BinTree().add(3, 4, 1, 2, 5, 9) #.print()
-
+print('end')
 
 # class binTree():
 #     def __init__(self, _root=None):
