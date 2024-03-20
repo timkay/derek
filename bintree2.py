@@ -1,6 +1,6 @@
 class Node():
     def __init__(self, value):
-        self.value = str(value)
+        self.value = value
         self.left = None
         self.right = None
     def cut(self):
@@ -29,7 +29,6 @@ class BinTree():
     def add(self, *values):
         """Adds a node to the tree. Ignores duplicates."""
         for value in values:
-            value = str(value)
             node = self.root
             if node is None:
                 self.root = node = Node(value)
