@@ -37,17 +37,18 @@ class BinTree():
             self.root.right.print()
         print()
         return self
-    def find2(self, value):
+    def find2(self, pivot, value=None):
         """
         Finds a parent and node in the tree, if a matching value exists.
         Otherwise, returns the parent and None where the value can be added.
         """
+        pivot = value
         parent, node = self.root, self.root.right
         while node and node.value != value:
             parent, node = node, node.left if value < node.value else node.right
         return parent, node
     def find(self, value):
-        return self.find2(value)[1]
+        return self.find2(value, value)[1]
     def add(self, *values):
         """Adds a node to the tree. Ignores duplicates."""
         for value in values:
