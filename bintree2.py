@@ -87,7 +87,7 @@ class BinTree():
         if self.root.right is not None:
             max = 6
             for depth in range(0, max):
-                print(depth, ' ' * int(width * 2 ** (max - depth - 2) / 2), end='')
+                # print(depth, ' ' * int(width * 2 ** (max - depth - 2) / 2), end='')
                 self.root.right.tree(depth)
                 print()
         return self
