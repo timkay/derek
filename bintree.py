@@ -30,7 +30,7 @@ class BinTree():
         """Adds an item to the tree. Ignores duplicates."""
         for value in values:
             item = self
-            while item.self:
+            while item:
                 if value < item.value:
                     if item.left:
                         item = item.left
