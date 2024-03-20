@@ -18,9 +18,9 @@ class Node():
         print(' ', self.value, end='')
         if self.right:
             self.right.print()
-    def tree(self, depth=0):
+    def tree(self, depth=0, width=5):
         if depth == 0:
-            print(f'{self.value:5}', end='')
+            print(f'{self.value:width}', end='')
             return
         if self.left:
             self.left.tree(depth - 1)
