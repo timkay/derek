@@ -50,7 +50,7 @@ class BinTree():
     def print(self, what=None):
         """Prints the whole tree in order"""
         if what is not None:
-            print(f'--- {what} ---')
+            print(f'{what}:', end='')
         if self.root:
             self.root.print()
             print()
