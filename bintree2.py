@@ -83,7 +83,7 @@ class BinTree():
             width = 5
             max = 6
             for depth in range(0, max):
-                print(' ' * int(width * 2 ** (max - depth - 1) / 2), end='')
+                print(' ' * int(width * 2 ** (max - depth - 2) / 2), end='')
                 self.root.right.tree(depth)
                 print()
         return self
