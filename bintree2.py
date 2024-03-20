@@ -53,7 +53,7 @@ class BinTree():
         return self
     def find(self, value):
         """Finds a node in the tree."""
-        node = self
+        node = self.root.right
         while node is not None:
             if node.value == value:
                 return node
