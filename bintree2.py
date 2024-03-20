@@ -27,11 +27,11 @@ class Node():
         if self.left:
             self.left.tree(depth - 1)
         else:
-            print('x', '-' * (width - 2), 'x', end = '')
+            print(f' {'-' * (width - 2)} ', end = '')
         if self.right:
             self.right.tree(depth - 1)
         else:
-            print('x', '-' * (width - 2), 'x', end = '')
+            print(f' {'-' * (width - 2)} ', end = '')
     def __str__(self):
         return f'Node({self.value})'
 class BinTree():
