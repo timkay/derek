@@ -1,10 +1,11 @@
 class linkedListController():
     def __init__(self):
-        self.sentinel = linkedListNode(None)
-        self.sentinel.isSentinel = True
+        self.sentinel = linkedListSentinel(self)
         self.head = self.sentinel
     def append(self, value):
-        self.head.add(value, "a")
+        self.tail.add(value, "i")
+    def shift(self):
+        self.head = self.head.nextItem
 class linkedListNode():
     def __init__(self, value):
         self.value = value
@@ -15,9 +16,9 @@ class linkedListNode():
             if mode == "d":
                 raise LinkedListRelinkException("NextItem is already defined")
             if mode == "i":
-                self.nextItem = linkedlist(nextItem).add(self.nextItem, "d")
+                self.nextItem = linkedListNode(nextItem).add(self.nextItem, "d")
             if mode == "a":
-                self._parse().add(linkedList(nextItem, "d"))
+                self._parse().add(linkedListNode(nextItem, "d"))
         else:
             self.nextItem = nextItem
         return self
@@ -34,12 +35,18 @@ class linkedListNode():
                 item = item.nextItem
                 amount += 1
     def parse(self, distance=-1):
-        return _parse(distance).value
+        return self._parse(distance).value
     def parseGenerator(self):
         item = self
         while item != None:
             yield item.value
             item = item.nextItem
+    def print(self):
+        print(self.value, end="")
+        if self.nextItem.isSentinel:
+            print()
+            return
+        self.nextItem.print()
 class linkedListSentinel(linkedListNode):
     def __init__(self, controller):
         self.controller = controller
@@ -48,6 +55,7 @@ class linkedListSentinel(linkedListNode):
         if self.controller.head != self:
             raise LinkedListSentinelAddItemException("Sentinel should not be used to define items in a populated list.")
         self.controller.head = linkedListNode(value).add(self,  "d")
+        self.controller.tail = self.controller.head
 class LinkedListRelinkException(Exception):
     pass
 class LinkedListSentinelAddItemException(Exception):
