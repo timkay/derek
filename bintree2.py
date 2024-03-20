@@ -1,3 +1,5 @@
+import math
+
 class Node():
     def __init__(self, value):
         self.value = value
@@ -19,7 +21,7 @@ class Node():
             self.right.print()
 class BinTree():
     def __init__(self):
-        self.root = None
+        self.root = Node(-math.inf)
     def cut(self):
         """Removes the entire tree structure"""
         if self.root:
