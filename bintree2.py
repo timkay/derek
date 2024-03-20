@@ -42,7 +42,7 @@ class BinTree():
         Finds a parent and node in the tree, if a matching value exists.
         Otherwise, returns the parent and None where the value can be added.
         """
-        parent, node = self.root, parent.right
+        parent, node = self.root, self.root.right
         while node and node.value != value:
             parent, node = node, node.left if value < node.value else node.right
         return parent, node
