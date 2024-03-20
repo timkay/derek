@@ -18,18 +18,18 @@ class Node():
         print(' ', self.value, end='')
         if self.right:
             self.right.print()
-    def tree(self, depth=0, width=5):
+    def tree(self, depth=0):
         if depth == 0:
-            print(f'{self.value:<5}', end='')
+            print(f'{self.value:5}', end='')
             return
         if self.left:
             self.left.tree(depth - 1)
         else:
-            print('-' * width, end = '')
+            print(' ', '-' * 4, end = '')
         if self.right:
             self.right.tree(depth - 1)
         else:
-            print('-' * width, end = '')
+            print(' ', '-' * 4, end = '')
     def __str__(self):
         return f'Node({self.value})'
 class BinTree():
