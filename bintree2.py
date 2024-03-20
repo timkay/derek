@@ -54,7 +54,7 @@ class BinTree():
             parent, node = self.find2(value)
             if value < node.value:
                 node.left = Node(value)
-            else
+            else:
                 node.right = Node(value)
         return self
     def remove(self, value):
