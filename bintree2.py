@@ -18,18 +18,18 @@ class Node():
         print(' ', self.value, end='')
         if self.right:
             self.right.print()
-    def tree(self, depth=0):
+    def tree(self, depth=0, width):
         if depth == 0:
-            print(' ', self.value, end='')
+            print(f'{self.value:width}', end='')
             return
         if self.left:
             self.left.tree(depth - 1)
         else:
-            print(' -', end = '')
+            print('-' * width, end = '')
         if self.right:
             self.right.tree(depth - 1)
         else:
-            print(' -', end = '')
+            print('-' * width, end = '')
     def __str__(self):
         return f'Node({self.value})'
 class BinTree():
@@ -80,11 +80,11 @@ class BinTree():
         if what is not None:
             print(f'{what}:')
         if self.root.right is not None:
-            wid = 5
+            width = 5
             max = 6
             for depth in range(0, max):
-                print(' ' * int(wid * (max - depth) / 2), end='')
-                self.root.right.tree(depth)
+                print(' ' * int(width * (max - depth) / 2), end='')
+                self.root.right.tree(depth, width)
                 print()
         return self
 
