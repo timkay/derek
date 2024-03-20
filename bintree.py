@@ -52,15 +52,15 @@ class BinTree():
             self.root.print()
         return self
     def find(self, value):
-        """Finds an item in the tree."""
-        item = self
-        while item is not None:
-            if item.value == value:
-                return item
-            if value < item.value:
-                item = item.left
+        """Finds a node in the tree."""
+        node = self
+        while node is not None:
+            if node.value == value:
+                return node
+            if value < node.value:
+                node = node.left
             else:
-                item = item.right
+                node = node.right
 
 tree = BinTree().add(3, 4, 1, 2, 5, 9).print()
 
