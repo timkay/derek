@@ -45,7 +45,7 @@ class BinTree():
         pivot = value
         parent, node = self.root, self.root.right
         while node and node.value != value:
-            parent, node = node, node.left if value < node.value else node.right
+            parent, node = node, node.left if pivot < node.value else node.right
         return parent, node
     def find(self, value):
         return self.find2(value, value)[1]
