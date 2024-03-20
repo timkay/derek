@@ -19,7 +19,7 @@ class Node():
             self.right.print()
 class BinTree():
     def __init__(self):
-        self.root = Node(Infinity)
+        self.root = None
     def cut(self):
         """Removes the entire tree structure"""
         if self.root:
