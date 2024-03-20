@@ -53,17 +53,21 @@ class BinTree():
             self.root.right.print()
         print()
         return self
-    def find(self, value):
+    def find2(self, value):
         """Finds a node in the tree."""
         parent = self.root
         node = parent.right
         while node is not None:
             if node.value == value:
-                return node, parent
+                return parent, node
             if value < node.value:
                 parent, node = node, node.left
             else:
                 parent, node = node, node.right
+    def find(self, value):
+        result = self.find2(value)
+        if result is not None:
+            return result[1]
     def remove(self, value):
         """Removes a node from the tree"""
         node, parent = self.find(value)
