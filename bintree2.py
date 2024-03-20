@@ -32,17 +32,15 @@ class BinTree():
             node = self.root
             while node:
                 if value < node.value:
-                    if node.left:
-                        node = node.left
-                    else:
+                    if node.left is None:
                         node.left = Node(value)
                         break
+                    node = node.left
                 else:
-                    if node.right:
-                        node = node.right
-                    else:
+                    if node.right is None:
                         node.right = Node(value)
                         break
+                    node = node.right
         return self
     def print(self, what=None):
         """Prints the whole tree in order"""
