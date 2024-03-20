@@ -3,7 +3,6 @@ class Node():
         self.value = value
         self.left = None
         self.right = None
-        print(f'new node {value}')
     def cut(self):
         """Removes the entire tree structure"""
         """Is it necessary to del each node?"""
