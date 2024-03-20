@@ -26,7 +26,7 @@ class Node():
         blank.left = blank
         blank.right = blank
         if depth == 0:
-            print(' ' * (width * 2 ** (max - depth - 1) / 2), end='')
+            print(' ' * int(width * 2 ** (max - depth - 1) / 2), end='')
             print(f'{self.value:^5}', end='')
             return
         if self.left:
