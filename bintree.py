@@ -34,13 +34,13 @@ class BinTree():
                 if value < item.value:
                     if item.left:
                         item = item.left
-                    else
+                    else:
                         item.left = Node(value)
                         break
-                else
+                else:
                     if item.right:
                         item = item.right
-                    else
+                        else:
                         item.right = Node(value)
                         break
         return self
