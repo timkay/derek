@@ -21,17 +21,20 @@ class Node():
         if self.right:
             self.right.print()
     def tree(self, depth=0):
+        blank = Node(' --- ')
+        blank.left = blank
+        blank.right = blank
         if depth == 0:
             print(f'{self.value:5}', end='')
             return
         if self.left:
             self.left.tree(depth - 1)
         else:
-            print(f' {"-" * (width - 2)} ', end = '')
+            blank.tree(depth - 1)
         if self.right:
             self.right.tree(depth - 1)
         else:
-            print(f' {"-" * (width - 2)} ', end = '')
+            blank.tree(depth - 1)
     def __str__(self):
         return f'Node({self.value})'
 class BinTree():
