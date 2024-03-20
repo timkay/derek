@@ -1,8 +1,11 @@
+import js
+
 class Node():
     def __init__(self, value):
         self.value = value
         self.left = None
         self.right = None
+        js.console.log(f'new node {value}')
         print(f'new node {value}')
     def cut(self):
         """Removes the entire tree structure"""
