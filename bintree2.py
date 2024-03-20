@@ -52,10 +52,10 @@ class BinTree():
         """Adds a node to the tree. Ignores duplicates."""
         for value in values:
             parent, node = self.find2(value)
-            if value < node.value:
-                node.left = Node(value)
+            if value < parent.value:
+                parent.left = Node(value)
             else:
-                node.right = Node(value)
+                parent.right = Node(value)
         return self
     def remove(self, value):
         """Removes a node from the tree"""
