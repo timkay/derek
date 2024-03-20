@@ -31,7 +31,7 @@ class BinTree():
         """Adds a node to the tree. Ignores duplicates."""
         for value in values:
             node = self.root
-            if node is Null:
+            if node is None:
                 node = Node(value)
                 continue
             while node:
