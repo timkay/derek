@@ -25,6 +25,7 @@ class BinTree():
     def cut(self):
         """Removes the entire tree structure"""
         self.root.right.cut()
+        self.root.right = None
         return self
     def add(self, *values):
         """Adds a node to the tree. Ignores duplicates."""
