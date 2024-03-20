@@ -80,7 +80,7 @@ class BinTree():
         if what is not None:
             print(f'{what}:')
         if self.root.right is not None:
-            wid = 5
+            wid = 6
             max = 6
             for depth in range(0, max):
                 print(' ' * (wid * (max - depth) / 2), end='')
