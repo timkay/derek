@@ -66,8 +66,7 @@ class BinTree():
             else:
                 node = node.right
 
-# print('added digits of pi:', end='')
-tree = BinTree().add(3, 1, 4, 1, 5, 9, 2, 6).print()      #.print('added digits of pi')
+tree = BinTree().add(3, 1, 4, 1, 5, 9, 2, 6).print('added digits of pi')
 
 
 # class binTree():
