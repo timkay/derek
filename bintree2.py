@@ -48,7 +48,8 @@ class BinTree():
         """Prints the whole tree in order"""
         if what is not None:
             print(f'{what}:', end='')
-        self.root.print()
+        if self.root.right is not None:
+            self.root.right.print()
         print()
         return self
     def find(self, value):
