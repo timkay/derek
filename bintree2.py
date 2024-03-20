@@ -69,3 +69,4 @@ class BinTree():
 tree = BinTree()
 tree.add(3, 1, 4, 1, 5, 9, 2, 6).print('added digits of pi')
 tree.add(10).print('added 10')
+tree.add(3).print('added 3, which matches root')
