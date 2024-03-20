@@ -15,7 +15,7 @@ class Node():
     def print(self):
         if self.left:
             self.left.print()
-        print(self.value)
+        print(' ', self.value, end='')
         if self.right:
             self.right.print()
 class BinTree():
@@ -54,6 +54,7 @@ class BinTree():
             print(f'--- {what} ---')
         if self.root:
             self.root.print()
+            print()
         return self
     def find(self, value):
         """Finds a node in the tree."""
