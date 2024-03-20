@@ -24,17 +24,12 @@ class BinTree():
         self.root = Node(-math.inf)
     def cut(self):
         """Removes the entire tree structure"""
-        if self.root:
-            self.root.cut()
-            del self
-            self = None
+        self.root.right.cut()
+        return self
     def add(self, *values):
         """Adds a node to the tree. Ignores duplicates."""
         for value in values:
             node = self.root
-            if node is None:
-                self.root = node = Node(value)
-                continue
             while node:
                 if value < node.value:
                     if node.left:
@@ -53,9 +48,7 @@ class BinTree():
         """Prints the whole tree in order"""
         if what is not None:
             print(f'{what}:', end='')
-        if self.root:
-            self.root.print()
-            print()
+        self.root.print()
         return self
     def find(self, value):
         """Finds a node in the tree."""
