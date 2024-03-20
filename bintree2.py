@@ -20,7 +20,7 @@ class Node():
         if self.right:
             self.right.print()
     def __str__(self):
-        return f'Node({value})'
+        return f'Node({self.value})'
 class BinTree():
     def __init__(self):
         self.root = Node(-math.inf)
