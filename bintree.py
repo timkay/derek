@@ -29,7 +29,7 @@ class BinTree():
     def add(self, *values):
         """Adds a node to the tree. Ignores duplicates."""
         for value in values:
-            node = self
+            node = self.root
             while node:
                 if value < node.value:
                     if node.left:
