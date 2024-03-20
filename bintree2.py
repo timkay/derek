@@ -19,6 +19,8 @@ class Node():
         print(' ', self.value, end='')
         if self.right:
             self.right.print()
+    def __str__(self):
+        return f'Node({value})'
 class BinTree():
     def __init__(self):
         self.root = Node(-math.inf)
