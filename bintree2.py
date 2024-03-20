@@ -1,4 +1,4 @@
-import math
+eimport math
 
 class Node():
     def __init__(self, value):
@@ -55,14 +55,18 @@ class BinTree():
         return self
     def find(self, value):
         """Finds a node in the tree."""
-        node = self.root.right
+        parent = self.root
+        node = parent.right
         while node is not None:
             if node.value == value:
-                return node
+                return node, parent
             if value < node.value:
-                node = node.left
+                parent, node = node, node.left
             else:
-                node = node.right
+                parent, node = node, node.right
+    def remove(self, value):
+        """Removes a node from the tree"""
+        node, parent = self.find(value)
 
 tree = BinTree()
 tree.add(3, 1, 4, 1, 5, 9, 2, 6).print('added digits of pi')
