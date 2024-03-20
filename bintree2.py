@@ -7,7 +7,6 @@ class Node():
         self.right = None
     def cut(self):
         """Removes the entire tree structure"""
-        """Is it necessary to del each node?"""
         if self.left:
             self.left.cut()
         if self.right:
@@ -26,24 +25,9 @@ class BinTree():
         self.root = Node(-math.inf)
     def cut(self):
         """Removes the entire tree structure"""
+        #Is this feature necessary? Why not rely on the garbage collector?
         self.root.right.cut()
         self.root.right = None
-        return self
-    def add(self, *values):
-        """Adds a node to the tree. Ignores duplicates."""
-        for value in values:
-            node = self.root
-            while node:
-                if value < node.value:
-                    if node.left is None:
-                        node.left = Node(value)
-                        break
-                    node = node.left
-                else:
-                    if node.right is None:
-                        node.right = Node(value)
-                        break
-                    node = node.right
         return self
     def print(self, what=None):
         """Prints the whole tree in order"""
@@ -54,20 +38,25 @@ class BinTree():
         print()
         return self
     def find2(self, value):
-        """Finds a node in the tree."""
-        parent = self.root
-        node = parent.right
-        while node is not None:
-            if node.value == value:
-                return parent, node
-            if value < node.value:
-                parent, node = node, node.left
-            else:
-                parent, node = node, node.right
+        """
+        Finds a parent and node in the tree, if a matching value exists.
+        Otherwise, returns the parent and None where the value can be added.
+        """
+        parent, node = self.root, parent.right
+        while node and node.value != value:
+            parent, node = node, node.left if value < node.value else node.right
+        return parent, node
     def find(self, value):
-        result = self.find2(value)
-        if result is not None:
-            return result[1]
+        return self.find2(value)[1]
+    def add(self, *values):
+        """Adds a node to the tree. Ignores duplicates."""
+        for value in values:
+            parent, node = self.find2(value)
+            if value < node.value:
+                node.left = Node(value)
+            else
+                node.right = Node(value)
+        return self
     def remove(self, value):
         """Removes a node from the tree"""
         node, parent = self.find(value)
