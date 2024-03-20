@@ -49,6 +49,7 @@ class BinTree():
         if what is not None:
             print(f'{what}:', end='')
         self.root.print()
+        print()
         return self
     def find(self, value):
         """Finds a node in the tree."""
