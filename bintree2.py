@@ -1,4 +1,4 @@
-eimport math
+import math
 
 class Node():
     def __init__(self, value):
