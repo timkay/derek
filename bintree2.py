@@ -1,6 +1,6 @@
 import math
 
-width = 5
+width = 4
 
 class Node():
     def __init__(self, value):
@@ -22,7 +22,7 @@ class Node():
             self.right.print()
     def tree(self, depth=0):
         if depth == 0:
-            print(f' {self.value:5}', end='')
+            print(f'{self.value:5}', end='')
             return
         if self.left:
             self.left.tree(depth - 1)
