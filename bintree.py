@@ -32,7 +32,7 @@ class BinTree():
         for value in values:
             node = self.root
             if node is None:
-                node = Node(value)
+                self.root = node = Node(value)
                 continue
             while node:
                 if value < node.value:
