@@ -1,5 +1,7 @@
 import math
 
+width = 5
+
 class Node():
     def __init__(self, value):
         self.value = value
@@ -25,11 +27,11 @@ class Node():
         if self.left:
             self.left.tree(depth - 1)
         else:
-            print(' ', '-' * 4, end = '')
+            print(' ', '-' * (width - 1), end = '')
         if self.right:
             self.right.tree(depth - 1)
         else:
-            print(' ', '-' * 4, end = '')
+            print(' ', '-' * (width - 1), end = '')
     def __str__(self):
         return f'Node({self.value})'
 class BinTree():
@@ -80,7 +82,6 @@ class BinTree():
         if what is not None:
             print(f'{what}:')
         if self.root.right is not None:
-            width = 5
             max = 6
             for depth in range(0, max):
                 print(depth, ' ' * int((width + 1) * 2 ** (max - depth - 2) / 2), end='')
