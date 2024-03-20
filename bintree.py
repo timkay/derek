@@ -25,7 +25,7 @@ class BinTree():
         if self.root:
             self.root.cut()
             del self
-            self = None
+            self.root = None
     def add(self, *values):
         """Adds a node to the tree. Ignores duplicates."""
         for value in values:
