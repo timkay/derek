@@ -1,6 +1,7 @@
 import math
 
 width = 5
+max = 6
 
 class Node():
     def __init__(self, value):
@@ -25,6 +26,7 @@ class Node():
         blank.left = blank
         blank.right = blank
         if depth == 0:
+            print(' ' * (width * 2 ** (max - depth - 1) / 2), end='')
             print(f'{self.value:^5}', end='')
             return
         if self.left:
@@ -85,7 +87,6 @@ class BinTree():
         if what is not None:
             print(f'{what}:')
         if self.root.right is not None:
-            max = 6
             for depth in range(0, max):
                 # print(depth, ' ' * int(width * 2 ** (max - depth - 2) / 2), end='')
                 self.root.right.tree(depth)
