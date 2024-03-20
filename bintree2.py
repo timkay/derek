@@ -20,7 +20,7 @@ class Node():
             self.right.print()
     def tree(self, depth=0, width=5):
         if depth == 0:
-            print(f'{self.value:width}', end='')
+            print(f'{self.value:=width}', end='')
             return
         if self.left:
             self.left.tree(depth - 1)
