@@ -40,7 +40,7 @@ class BinTree():
                 else:
                     if item.right:
                         item = item.right
-                        else:
+                    else:
                         item.right = Node(value)
                         break
         return self
