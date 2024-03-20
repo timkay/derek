@@ -18,6 +18,18 @@ class Node():
         print(' ', self.value, end='')
         if self.right:
             self.right.print()
+    def tree(self, depth=0):
+        if depth == 0:
+            print(' ', self.value, end='')
+            return
+        if self.left:
+            self.left.tree(depth - 1)
+        else:
+            print(' -', end = '')
+        if self.right:
+            self.right.tree(depth - 1)
+        else:
+            print(' -', end = '')
     def __str__(self):
         return f'Node({self.value})'
 class BinTree():
@@ -29,18 +41,11 @@ class BinTree():
         self.root.right.cut()
         self.root.right = None
         return self
-    def print(self, what=None):
-        """Prints the whole tree in order"""
-        if what is not None:
-            print(f'{what}:', end='')
-        if self.root.right is not None:
-            self.root.right.print()
-        print()
-        return self
     def find2(self, pivot, value=None):
         """
         Finds a parent and node in the tree, if a matching value exists.
-        Otherwise, returns the parent and None where the value can be added.
+        Otherwise, returns the parent (and None) where the value can be added.
+        Pivot on math.-inf or math.inf to find the left-most or right-most child.
         """
         parent, node = self.root, self.root.right
         while node and node.value != value:
@@ -59,12 +64,31 @@ class BinTree():
         return self
     def remove(self, value):
         """Removes a node from the tree"""
-        node, parent = self.find(value)
+        parent, node = self.find2(value, value)
+        if node:
+            pass
+    def print(self, what=None):
+        """Prints the whole tree in order"""
+        if what is not None:
+            print(f'{what}:', end='')
+        if self.root.right is not None:
+            self.root.right.print()
+        print()
+        return self
+    def tree(self, what=None):
+        """Prints the whole tree as a tree"""
+        if what is not None:
+            print(f'{what}:')
+        if self.root.right is not None:
+            for depth in range(0:10):
+                self.root.right.tree(depth)
+        return self
 
 tree = BinTree()
 tree.add(3, 1, 4, 1, 5, 9, 2, 6).print('added digits of pi')
 tree.add(10).print('added 10')
 tree.add(3).print('added 3, which matches root')
+tree.tree()
 tree.cut().print('cut')
 tree.add(1, 2, 3, 4, 5, 6).print('added sequence')
 print('find(2) -->', tree.find(2))
