@@ -27,21 +27,21 @@ class BinTree():
             del self
             self = None
     def add(self, *values):
-        """Adds an item to the tree. Ignores duplicates."""
+        """Adds a node to the tree. Ignores duplicates."""
         for value in values:
-            item = self
-            while item:
-                if value < item.value:
-                    if item.left:
-                        item = item.left
+            node = self
+            while node:
+                if value < node.value:
+                    if node.left:
+                        node = node.left
                     else:
-                        item.left = Node(value)
+                        node.left = Node(value)
                         break
                 else:
-                    if item.right:
-                        item = item.right
+                    if node.right:
+                        node = node.right
                     else:
-                        item.right = Node(value)
+                        node.right = Node(value)
                         break
         return self
     def print(self, what=None):
