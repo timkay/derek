@@ -80,7 +80,7 @@ class BinTree():
         if what is not None:
             print(f'{what}:')
         if self.root.right is not None:
-            for depth in range(0:10):
+            for depth in range(0, 10):
                 self.root.right.tree(depth)
         return self
 
