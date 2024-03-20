@@ -21,7 +21,7 @@ class Node():
         print(' ', self.value, end='')
         if self.right:
             self.right.print()
-    def tree(self, depth=0):
+    def tree(self, depth, max):
         blank = Node(' --- ')
         blank.left = blank
         blank.right = blank
@@ -30,13 +30,13 @@ class Node():
             print(f'{self.value:^5}', end='')
             return
         if self.left:
-            self.left.tree(depth - 1)
+            self.left.tree(depth - 1, max - 1)
         else:
-            blank.tree(depth - 1)
+            blank.tree(depth - 1, max - 1)
         if self.right:
-            self.right.tree(depth - 1)
+            self.right.tree(depth - 1, max - 1)
         else:
-            blank.tree(depth - 1)
+            blank.tree(depth - 1, max - 1)
     def __str__(self):
         return f'Node({self.value})'
 class BinTree():
@@ -89,7 +89,7 @@ class BinTree():
         if self.root.right is not None:
             for depth in range(0, max):
                 # print(depth, ' ' * int(width * 2 ** (max - depth - 2) / 2), end='')
-                self.root.right.tree(depth)
+                self.root.right.tree(depth, max)
                 print()
         return self
 
