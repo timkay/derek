@@ -20,11 +20,11 @@ class Node():
         if self.left:
             self.left.tree(depth - 1, between)
         else:
-            self.sentinel.tree(depth - 1, between)
+            sentinel.tree(depth - 1, between)
         if self.right:
             self.right.tree(depth - 1, between)
         else:
-            self.sentinel.tree(depth - 1, between)
+            sentinel.tree(depth - 1, between)
     def __str__(self):
         return f'Node({self.value})'
 
