@@ -23,13 +23,13 @@ class Node():
             print(' ' * between, '{value:^{width}}'.format(value=self.value, width=width), end='')
             return
         if self.left:
-            self.left.tree(depth - 1)
+            self.left.tree(depth - 1, between)
         else:
-            self.sentinel.tree(depth - 1)
+            self.sentinel.tree(depth - 1, between)
         if self.right:
-            self.right.tree(depth - 1)
+            self.right.tree(depth - 1, between)
         else:
-            self.sentinel.tree(depth - 1)
+            self.sentinel.tree(depth - 1, between)
     def __str__(self):
         return f'Node({self.value})'
 class BinTree():
