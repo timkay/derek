@@ -4,9 +4,9 @@ width = 5
 
 class Node():
 
-    sentinel = Node(' --- ')
-    sentinel.left = sentinel
-    sentinel.right = sentinel
+    # sentinel = Node(' --- ')
+    # sentinel.left = sentinel
+    # sentinel.right = sentinel
 
     def __init__(self, value):
         self.value = value
