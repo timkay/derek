@@ -1,6 +1,6 @@
 import math
 
-width = 5
+width = 3
 
 class Node():
     def __init__(self, value):
