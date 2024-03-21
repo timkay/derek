@@ -28,7 +28,7 @@ class Node():
     def __str__(self):
         return f'Node({self.value})'
 
-sentinel = Node(' - ')
+sentinel = Node('-')
 sentinel.left = sentinel
 sentinel.right = sentinel
 
