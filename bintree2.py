@@ -13,24 +13,12 @@ class Node():
         print(' ', self.value, end='')
         if self.right != None:
             self.right.print()
-    def tree(self, depth, between):
-        if depth == 0:
-            print(' ' * between, '{value:^{width}}'.format(value=self.value, width=width), end='')
-            return
-        if self.left:
-            self.left.tree(depth - 1, between)
-        else:
-            sentinel.tree(depth - 1, between)
-        if self.right:
-            self.right.tree(depth - 1, between)
-        else:
-            sentinel.tree(depth - 1, between)
     def __str__(self):
         return f'Node({self.value})'
 
-sentinel = Node('-')
-sentinel.left = sentinel
-sentinel.right = sentinel
+    sentinel = Node('-')
+    sentinel.left = sentinel
+    sentinel.right = sentinel
 
 class BinTree():
     def __init__(self):
@@ -68,18 +56,6 @@ class BinTree():
         if self.root.right is not None:
             self.root.right.print()
         print()
-        return self
-    def tree(self, what=None):
-        """Prints the whole tree as a tree"""
-        deepest = 5
-        if what is not None:
-            print(f'{what}:')
-        if self.root.right is not None:
-            for depth in range(0, deepest):
-                # print(width, 2**(deepest-1), 2**depth, 2**(deepest-1) - 2**depth, 2**depth + 1, width * (2**(deepest-1) - 2**depth) / (2**depth + 1))
-                between = int(width * (2**(deepest-1) - 2**depth) / (2**depth + 1))
-                self.root.right.tree(depth, between)
-                print()
         return self
 
 tree = BinTree()
