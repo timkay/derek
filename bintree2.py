@@ -3,11 +3,6 @@ import math
 width = 5
 
 class Node():
-
-    # sentinel = Node(' --- ')
-    # sentinel.left = sentinel
-    # sentinel.right = sentinel
-
     def __init__(self, value):
         self.value = value
         self.left = None
@@ -32,6 +27,11 @@ class Node():
             self.sentinel.tree(depth - 1, between)
     def __str__(self):
         return f'Node({self.value})'
+
+sentinel = Node(' --- ')
+sentinel.left = sentinel
+sentinel.right = sentinel
+
 class BinTree():
     def __init__(self):
         self.root = Node(-math.inf)
