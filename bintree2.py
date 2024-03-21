@@ -16,19 +16,25 @@ class Node():
     def __str__(self):
         return f'Node({self.value})'
 
-    sentinel = Node('-')
-    sentinel.left = sentinel
-    sentinel.right = sentinel
+sentinel = Node('-')
+sentinel.left = sentinel
+sentinel.right = sentinel
 
 class BinTree():
     def __init__(self):
         self.root = Node(-math.inf)
+    @staticmethod
+    def f(parent, node, pivot, value=None):
+        while node and node.value != value:
+            parent, node = node, node.left if pivot < node.value else node.right
+        return parent, node
     def find2(self, pivot, value=None):
         """
         Finds a parent and node in the tree, if a matching value exists.
         Otherwise, returns the parent (and None) where the value can be added.
         Pivot on math.-inf or math.inf to find the left-most or right-most child.
         """
+        return self.f(self.root, self.root.right, pivot, value)
         parent, node = self.root, self.root.right
         while node and node.value != value:
             parent, node = node, node.left if pivot < node.value else node.right
@@ -47,8 +53,16 @@ class BinTree():
     def remove(self, value):
         """Removes a node from the tree"""
         parent, node = self.find2(value, value)
-        if node:
+        # if node is None then value was not found
+        if node is None:
+            return
+        if value < parent.value:
+            # need new parent.left
             pass
+        else:
+            # need new parent.right
+            pass
+                
     def print(self, what=None):
         """Prints the whole tree in order"""
         if what is not None:
