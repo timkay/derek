@@ -78,6 +78,7 @@ class BinTree():
             for depth in range(0, deepest):
                 # print(width, 2**(deepest-1), 2**depth, 2**(deepest-1) - 2**depth, 2**depth + 1)
                 between = int(width * (2**(deepest-1) - 2**depth) / (2**depth + 1))
+                print(f'{between:<10}', end='')
                 self.root.right.tree(depth, between)
                 print()
         return self
