@@ -1,53 +1,40 @@
 import math
 
 width = 5
-max = 6
 
 class Node():
+
+    sentinel = Node(' --- ')
+    sentinel.left = sentinel
+    sentinel.right = sentinel
+
     def __init__(self, value):
         self.value = value
         self.left = None
         self.right = None
-    def cut(self):
-        """Removes the entire tree structure"""
-        if self.left:
-            self.left.cut()
-        if self.right:
-            self.right.cut()
-        del self
     def print(self):
-        if self.left:
+        if self.left != None:
             self.left.print()
         print(' ', self.value, end='')
-        if self.right:
+        if self.right != None:
             self.right.print()
-    def tree(self, depth, max):
-        blank = Node(' --- ')
-        blank.left = blank
-        blank.right = blank
+    def tree(self, depth, between):
         if depth == 0:
-            print(' ' * int(width * 2 ** (max - depth - 3)), end='')
-            print(f'{self.value:^5}', end='')
+            print(' ' * between, '{value:^{width}}'.format(value=self.value, width=width), end='')
             return
         if self.left:
-            self.left.tree(depth - 1, max - 1)
+            self.left.tree(depth - 1)
         else:
-            blank.tree(depth - 1, max - 1)
+            self.sentinel.tree(depth - 1)
         if self.right:
-            self.right.tree(depth - 1, max - 1)
+            self.right.tree(depth - 1)
         else:
-            blank.tree(depth - 1, max - 1)
+            self.sentinel.tree(depth - 1)
     def __str__(self):
         return f'Node({self.value})'
 class BinTree():
     def __init__(self):
         self.root = Node(-math.inf)
-    def cut(self):
-        """Removes the entire tree structure"""
-        #Is this feature necessary? Why not rely on the garbage collector?
-        self.root.right.cut()
-        self.root.right = None
-        return self
     def find2(self, pivot, value=None):
         """
         Finds a parent and node in the tree, if a matching value exists.
@@ -84,12 +71,13 @@ class BinTree():
         return self
     def tree(self, what=None):
         """Prints the whole tree as a tree"""
+        deepest = 6
         if what is not None:
             print(f'{what}:')
         if self.root.right is not None:
-            for depth in range(0, max):
-                # print(depth, ' ' * int(width * 2 ** (max - depth - 2) / 2), end='')
-                self.root.right.tree(depth, max)
+            for depth in range(0, deepest):
+                between = width * (2^(deepest-1) - 2^depth) / (2^depth + 1)
+                self.root.right.tree(depth, between)
                 print()
         return self
 
