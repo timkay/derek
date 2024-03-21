@@ -71,7 +71,7 @@ class BinTree():
         return self
     def tree(self, what=None):
         """Prints the whole tree as a tree"""
-        deepest = 6
+        deepest = 5
         if what is not None:
             print(f'{what}:')
         if self.root.right is not None:
