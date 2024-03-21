@@ -56,11 +56,16 @@ class BinTree():
         # if node is None then value was not found
         if node is None:
             return
-        if value < parent.value:
+        if node == parent.left:
             # need new parent.left
-            pass
+            p, n = self.f(parent, node, math.inf)
+            p.right = n.left
+            n.left = node.left
+            n.right = node.right
+            parent.left = n
         else:
             # need new parent.right
+            p, n = self.f(parent, node, -math.inf)
             pass
                 
     def print(self, what=None):
@@ -76,7 +81,7 @@ tree = BinTree()
 tree.add(3, 1, 4, 1, 5, 9, 2, 6).print('added digits of pi')
 tree.add(10).print('added 10')
 tree.add(3).print('added 3, which matches root')
-tree.add(1, 2, 3, 4, 5, 6).print('added sequence')
+tree.add(1, 2, 3, 4, 5, 6).print('added sequence 1..6')
 print('find(2) -->', tree.find(2))
 print('find(88) -->', tree.find(88))
 print('done')
