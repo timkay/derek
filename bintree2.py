@@ -15,7 +15,7 @@ class Node():
             self.right.print()
     def tree(self, depth, between):
         if depth == 0:
-            print(' ' * between, '{value:^{width}}'.format(value=self.value, width=width), end='')
+            print(' ' * between, '>{value:^{width}}<'.format(value=self.value, width=width), end='')
             return
         if self.left:
             self.left.tree(depth - 1, between)
