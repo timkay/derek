@@ -58,7 +58,7 @@ class BinTree():
                 else:
                     p, n = node.left, node.left.right
                     while n.right:
-                        p, n = node, node.right
+                        p, n = n, n.right
                     p.right = n.left
                     n.left, n.right = node.left, node.right
                 if node == parent.left:
