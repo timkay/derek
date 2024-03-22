@@ -96,7 +96,7 @@ class BinTree():
                 recurse(node.right or none, depth + 1)
             maxdepth = get_maxdepth(self.root.right)
             print(f'{maxdepth=}')
-            for i in range(0, 5):
+            for i in range(0, maxdepth):
                 recurse(self.root.right)
                 print()
         print('---')
