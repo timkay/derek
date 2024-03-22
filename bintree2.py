@@ -83,7 +83,6 @@ class BinTree():
             print(f'{what}:', end='')
         if self.root.right is not None:
             def recurse(node, depth=0):
-                print('depth', depth)
                 if depth > 5: return
                 recurse(node.left or none, depth + 1)
                 print(f' {node.value}', end='')
