@@ -65,7 +65,7 @@ class BinTree():
                     parent.left = n
                 else:
                     parent.right = n
-        return self  
+        return self
     def print(self, what=None):
         """Prints the whole tree in order"""
         if what is not None:
