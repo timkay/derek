@@ -29,6 +29,7 @@ sentinel.right = sentinel
 class BinTree():
     def __init__(self):
         self.root = Node(-math.inf)
+        print('root', self.root)
     def find2(self, pivot, value=None):
         """
         Finds a parent and node in the tree, if a matching value exists.
@@ -62,9 +63,9 @@ class BinTree():
                 elif node.right is None:
                     n = node.left
                 else:
-                    print('parent, node', parent, node)
+                    print('parent, node =', parent, node)
                     p, n = node.left, node.left.right
-                    print('p, n', p, n)
+                    print('p, n =', p, n)
                     while n.right:
                         p, n = n, n.right
                     p.right = n.left
