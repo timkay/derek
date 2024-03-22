@@ -8,14 +8,7 @@ class Node():
         self.value = value
         self.left = None
         self.right = None
-    def print(self, depth=0):
-        def print(i, depth=0):
-            if depth > 5: return
-            (self.left or none).print(depth + 1)
-            print(f' {self.value}', end='')
-            (self.right or none).print(depth + 1)
-        print(0)
-    def print2(self):
+    def print(self):
         if debug: print('(', end='')
         if self.left != None:
             self.left.print()
@@ -89,6 +82,13 @@ class BinTree():
         if what is not None:
             print(f'{what}:', end='')
         if self.root.right is not None:
+            def print(node, depth=0):
+                def recurse(i, depth=0):
+                    if depth > 5: return
+                    recurse(self.left or none, depth + 1)
+                    print(f' {self.value}', end='')
+                    recurse(self.right or none, depth + 1)
+                print(0)
             self.root.right.print()
         print()
         return self
