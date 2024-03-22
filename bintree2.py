@@ -63,7 +63,7 @@ class BinTree():
                     n.left, n.right = node.left, node.right
                 if node == parent.left:
                     parent.left = n
-                else
+                else:
                     parent.right = n
         return self  
     def print(self, what=None):
