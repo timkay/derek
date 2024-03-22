@@ -83,13 +83,16 @@ class BinTree():
             print(f'--- {what}:')
         if self.root.right is not None:
             def recurse(node, depth=0):
-                if depth > 6: return
+                if depth == maxdepth and (node.left != none or node.right != none):
+                    maxdepth = depth
+                if depth > maxdepth: return
                 recurse(node.left or none, depth + 1)
                 if i == depth:
                     print(f' {node.value}', end='')
                 else:
                     print(' ' * (1 + len(str(node.value))), end='')
                 recurse(node.right or none, depth + 1)
+            maxdepth = 0
             for i in range(0, 5):
                 found = False
                 recurse(self.root.right)
