@@ -8,18 +8,6 @@ class Node():
         self.value = value
         self.left = None
         self.right = None
-    def print(self):
-        if debug: print('(', end='')
-        if self.left != None:
-            self.left.print()
-        else:
-            if debug: print('<', end='')
-        print(' ', self.value, ' ', end='')
-        if self.right != None:
-            self.right.print()
-        else:
-            if debug: print('>', end='')
-        if debug: print(')', end='')
     def __str__(self):
         return f'Node({self.value})'
 
@@ -78,7 +66,7 @@ class BinTree():
                     parent.right = n
         return self
     def print(self, what=None):
-        """Prints the whole tree"""
+        """Prints the tree"""
         if what is not None:
             print(f'--- {what}:')
         if self.root.right is not None:
