@@ -92,7 +92,7 @@ class BinTree():
                 recurse(node.right or none, depth + 1)
             for i in range(0, 5):
                 recurse(self.root.right)
-        print()
+                print()
         print('---')
         return self
 
