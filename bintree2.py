@@ -12,7 +12,7 @@ class Node():
         if depth > 5: return
         (self.left or none).print(depth + 1)
         print(f' {self.value} ', end='')
-        (self.right || none).print(depth + 1)
+        (self.right or none).print(depth + 1)
     def print2(self):
         if debug: print('(', end='')
         if self.left != None:
