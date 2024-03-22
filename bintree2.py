@@ -9,7 +9,7 @@ class Node():
         self.left = None
         self.right = None
     def print(self):
-        print('(', end='')
+        if debug: print('(', end='')
         if self.left != None:
             self.left.print()
         else:
@@ -19,7 +19,7 @@ class Node():
             self.right.print()
         else:
             if debug: print('>', end='')
-        print(')', end='')
+        if debug: print(')', end='')
     def __str__(self):
         return f'Node({self.value})'
 
