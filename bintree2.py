@@ -80,7 +80,7 @@ class BinTree():
     def print(self, what=None):
         """Prints the whole tree in order"""
         if what is not None:
-            print(f'{what}:', end='')
+            print(f'--- {what}:')
         if self.root.right is not None:
             def recurse(node, depth=0):
                 if depth > 5: return
@@ -93,6 +93,7 @@ class BinTree():
             for i in range(0, 5):
                 recurse(self.root.right)
         print()
+        print('---')
         return self
 
 tree = BinTree()
