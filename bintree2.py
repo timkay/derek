@@ -101,7 +101,8 @@ class BinTree():
                 print()
         print('---')
         return self
-
+print()
+print()
 tree = BinTree()
 tree.add(3, 1, 4, 1, 5, 9, 2, 6).print('added digits of pi')
 tree.add(10).print('added 10')
