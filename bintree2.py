@@ -9,10 +9,12 @@ class Node():
         self.left = None
         self.right = None
     def print(self, depth=0):
-        if depth > 5: return
-        (self.left or none).print(depth + 1)
-        print(f' {self.value}', end='')
-        (self.right or none).print(depth + 1)
+        def print(i, depth=0):
+            if depth > 5: return
+            (self.left or none).print(depth + 1)
+            print(f' {self.value}', end='')
+            (self.right or none).print(depth + 1)
+        print(0)
     def print2(self):
         if debug: print('(', end='')
         if self.left != None:
