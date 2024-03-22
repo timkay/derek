@@ -29,8 +29,8 @@ class Node():
         return f'Node({self.value})'
 
 none = Node('-')
-none.left = sentinel
-none.right = sentinel
+none.left = none
+none.right = none
 
 class BinTree():
     def __init__(self):
