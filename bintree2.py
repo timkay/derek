@@ -82,14 +82,12 @@ class BinTree():
         if what is not None:
             print(f'{what}:', end='')
         if self.root.right is not None:
-            def print(node, depth=0):
-                def recurse(i, depth=0):
-                    if depth > 5: return
-                    recurse(self.left or none, depth + 1)
-                    print(f' {self.value}', end='')
-                    recurse(self.right or none, depth + 1)
-                print(0)
-            self.root.right.print()
+            def recurse(node, i, depth=0):
+                if depth > 5: return
+                recurse(self.left or none, depth + 1)
+                print(f' {self.value}', end='')
+                recurse(self.right or none, depth + 1)
+            recurse(self.root.right, 0)
         print()
         return self
 
