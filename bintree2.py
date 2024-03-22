@@ -62,6 +62,7 @@ class BinTree():
                 elif node.right is None:
                     n = node.left
                 else:
+                    print('parent, node', parent, node)
                     p, n = node.left, node.left.right
                     print('p, n', p, n)
                     while n.right:
