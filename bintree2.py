@@ -44,33 +44,34 @@ class BinTree():
             else:
                 parent.right = Node(value)
         return self
-    def remove(self, value):
+    def remove(self, values):
         """Removes a node from the tree"""
-        parent, node = self.find2(value, value)
-        # if node is None then value was not found
-        if node:
-            if node == parent.left:
-                if node.right is None:
-                    parent.left = node.left
+        for value in values:
+            parent, node = self.find2(value, value)
+            # if node is None then value was not found
+            if node:
+                if node == parent.left:
+                    if node.right is None:
+                        parent.left = node.left
+                    else:
+                        # need new parent.left, so look for right-most element
+                        p, n = node, node.right
+                        while n.right:
+                            p, n = n, n.right
+                        p.right = n.left
+                        n.left, n.right = node.left, node.right
+                        parent.left = n
                 else:
-                    # need new parent.left, so look for right-most element
-                    p, n = node, node.right
-                    while n.right:
-                        p, n = n, n.right
-                    p.right = n.left
-                    n.left, n.right = node.left, node.right
-                    parent.left = n
-            else:
-                if node.left is None:
-                    parent.right = node.right
-                else:
-                    # need new parent.right, so look for left-most element
-                    p, n = node, node.left
-                    while n.left:
-                        p, n = n, n.left
-                    p.left = n.right
-                    n.left, n.right = node.left, node.right
-                    parent.right = n
+                    if node.left is None:
+                        parent.right = node.right
+                    else:
+                        # need new parent.right, so look for left-most element
+                        p, n = node, node.left
+                        while n.left:
+                            p, n = n, n.left
+                        p.left = n.right
+                        n.left, n.right = node.left, node.right
+                        parent.right = n
         return self  
     def print(self, what=None):
         """Prints the whole tree in order"""
@@ -91,5 +92,5 @@ print('find(88) -->', tree.find(88))
 tree.remove(3).print('removed 3')
 tree.remove(3).print('removed 3')
 tree.remove(3).print('removed 3')
-tree.remove(3).print('removed 3')
+tree.remove(3, 3, 3).print('removed 3 3 3')
 print('done')
