@@ -13,7 +13,7 @@ class Node():
             self.left.print()
         else:
             print('-', end='')
-        print(' ', self.value, end='')
+        print(self.value, end='')
         if self.right != None:
             self.right.print()
         else:
