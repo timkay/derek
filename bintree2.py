@@ -8,7 +8,12 @@ class Node():
         self.value = value
         self.left = None
         self.right = None
-    def print(self):
+    def print(self, depth=0):
+        if depth > 5: return
+        (self.left or none).print(depth + 1)
+        print(f' {self.value} ', end='')
+        (self.right || none).print(depth + 1)
+    def print2(self):
         if debug: print('(', end='')
         if self.left != None:
             self.left.print()
@@ -23,9 +28,9 @@ class Node():
     def __str__(self):
         return f'Node({self.value})'
 
-sentinel = Node('-')
-sentinel.left = sentinel
-sentinel.right = sentinel
+none = Node('-')
+none.left = sentinel
+none.right = sentinel
 
 class BinTree():
     def __init__(self):
