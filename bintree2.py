@@ -78,12 +78,13 @@ class BinTree():
                     parent.right = n
         return self
     def print(self, what=None):
-        """Prints the whole tree in order"""
+        """Prints the whole tree"""
         if what is not None:
             print(f'--- {what}:')
         if self.root.right is not None:
             def get_maxdepth(node, depth = 0):
                 if node is None: return depth
+                print(depth, get_maxdepth(node.left), get_maxdepth(node.right))
                 return depth + max(get_maxdepth(node.left), get_maxdepth(node.right))
             def recurse(node, depth=0):
                 if depth > maxdepth: return
