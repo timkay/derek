@@ -51,6 +51,7 @@ class BinTree():
             # if node is None then value was not found
             if node:
                 if node == parent.left:
+                    print('left')
                     if node.right is None:
                         parent.left = node.left
                     else:
@@ -62,6 +63,7 @@ class BinTree():
                         n.left, n.right = node.left, node.right
                         parent.left = n
                 else:
+                    print('right')
                     if node.left is None:
                         parent.right = node.right
                     else:
