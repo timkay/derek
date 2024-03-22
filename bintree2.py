@@ -83,10 +83,9 @@ class BinTree():
             print(f'--- {what}:')
         if self.root.right is not None:
             def get_maxdepth(node, depth = 0):
-                print('get', node, depth)
                 if node is None: return depth
                 print(depth, get_maxdepth(node.left), get_maxdepth(node.right), node)
-                return depth + max(get_maxdepth(node.left), get_maxdepth(node.right))
+                return depth + 1 + max(get_maxdepth(node.left), get_maxdepth(node.right))
             def recurse(node, depth=0):
                 if depth > maxdepth: return
                 recurse(node.left or none, depth + 1)
