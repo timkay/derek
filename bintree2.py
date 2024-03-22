@@ -50,30 +50,21 @@ class BinTree():
             parent, node = self.find2(value, value)
             # if node is None then value was not found
             if node:
-                if node == parent.left:
-                    print('left')
-                    if node.right is None:
-                        parent.left = node.left
-                    else:
-                        # need new parent.left, so look for right-most element
-                        p, n = node, node.right
-                        while n.right:
-                            p, n = n, n.right
-                        p.right = n.left
-                        n.left, n.right = node.left, node.right
-                        parent.left = n
+                # n will replace node
+                if node.left is None:
+                    n = node.right
+                elif node.right is None:
+                    n = node.left
                 else:
-                    print('right')
-                    if node.left is None:
-                        parent.right = node.right
-                    else:
-                        # need new parent.right, so look for left-most element
-                        p, n = node, node.left
-                        while n.left:
-                            p, n = n, n.left
-                        p.left = n.right
-                        n.left, n.right = node.left, node.right
-                        parent.right = n
+                    p, n = node.left, node.left.right
+                    while n.right:
+                        p, n = node, node.right
+                    p.right = n.left
+                    n.left, n.right = node.left, node.right
+                if node == parent.left:
+                    parent.left = n
+                else
+                    parent.right = n
         return self  
     def print(self, what=None):
         """Prints the whole tree in order"""
