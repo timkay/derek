@@ -61,8 +61,8 @@ class BinTree():
                 # n will replace node
                 if node.left is None:
                     n = node.right
-                elif node.right is None:
-                    n = node.left
+                # elif node.right is None:
+                #     n = node.left
                 elif node.left.right is None:
                     n = node.left
                     n.right = node.right
