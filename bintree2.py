@@ -88,7 +88,7 @@ class BinTree():
                 if i == depth:
                     print(f' {node.value}', end='')
                 else:
-                    print('-' * (1 + len(str(node.value))), end='')
+                    print(' ' * (1 + len(str(node.value))), end='')
                 recurse(node.right or none, depth + 1)
             for i in range(0, 5):
                 recurse(self.root.right)
