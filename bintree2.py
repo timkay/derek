@@ -12,12 +12,12 @@ class Node():
         if self.left != None:
             self.left.print()
         else:
-            print('-')
+            print('-', end='')
         print(' ', self.value, end='')
         if self.right != None:
             self.right.print()
         else:
-            print('-')
+            print('-', end='')
         print(')', end='')
     def __str__(self):
         return f'Node({self.value})'
