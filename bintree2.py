@@ -44,7 +44,7 @@ class BinTree():
             else:
                 parent.right = Node(value)
         return self
-    def remove(self, values):
+    def remove(self, *values):
         """Removes a node from the tree"""
         for value in values:
             parent, node = self.find2(value, value)
