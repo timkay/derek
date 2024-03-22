@@ -85,7 +85,7 @@ class BinTree():
             def recurse(node, depth=0):
                 nonlocal maxdepth
                 if depth == maxdepth and (node.left != none or node.right != none):
-                    maxdepth = depth
+                    maxdepth = depth + 1
                 if depth > maxdepth: return
                 recurse(node.left or none, depth + 1)
                 if i == depth:
