@@ -23,18 +23,12 @@ sentinel.right = sentinel
 class BinTree():
     def __init__(self):
         self.root = Node(-math.inf)
-    @staticmethod
-    def f(parent, node, pivot, value=None):
-        while node and node.value != value:
-            parent, node = node, node.left if pivot < node.value else node.right
-        return parent, node
     def find2(self, pivot, value=None):
         """
         Finds a parent and node in the tree, if a matching value exists.
         Otherwise, returns the parent (and None) where the value can be added.
         Pivot on math.-inf or math.inf to find the left-most or right-most child.
         """
-        return self.f(self.root, self.root.right, pivot, value)
         parent, node = self.root, self.root.right
         while node and node.value != value:
             parent, node = node, node.left if pivot < node.value else node.right
@@ -54,20 +48,30 @@ class BinTree():
         """Removes a node from the tree"""
         parent, node = self.find2(value, value)
         # if node is None then value was not found
-        if node is None:
-            return
-        if node == parent.left:
-            # need new parent.left
-            p, n = self.f(parent, node, math.inf)
-            p.right = n.left
-            n.left = node.left
-            n.right = node.right
-            parent.left = n
-        else:
-            # need new parent.right
-            p, n = self.f(parent, node, -math.inf)
-            pass
-                
+        if node:
+            if node == parent.left:
+                if node.right is None:
+                    parent.left = node.left
+                else:
+                    # need new parent.left, so look for right-most element
+                    p, n = node, node.right
+                    while n.right:
+                        p, n = n, n.right
+                    p.right = n.left
+                    n.left, n.right = node.left, node.right
+                    parent.left = n
+            else:
+                if node.left is None:
+                    parent.right = node.right
+                else:
+                    # need new parent.right, so look for left-most element
+                    p, n = node, node.left
+                    while n.left:
+                        p, n = n, n.left
+                    p.left = n.right
+                    n.left, n.right = node.left, node.right
+                    parent.right = n
+        return self  
     def print(self, what=None):
         """Prints the whole tree in order"""
         if what is not None:
@@ -84,4 +88,5 @@ tree.add(3).print('added 3, which matches root')
 tree.add(1, 2, 3, 4, 5, 6).print('added sequence 1..6')
 print('find(2) -->', tree.find(2))
 print('find(88) -->', tree.find(88))
+tree.remove(3).print('removed 3')
 print('done')
