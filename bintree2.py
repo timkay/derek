@@ -1,5 +1,6 @@
 import math
 
+debug = False
 width = 7
 
 class Node():
@@ -12,12 +13,12 @@ class Node():
         if self.left != None:
             self.left.print()
         else:
-            print('<', end='')
+            if debug: print('<', end='')
         print(' ', self.value, ' ', end='')
         if self.right != None:
             self.right.print()
         else:
-            print('>', end='')
+            if debug: print('>', end='')
         print(')', end='')
     def __str__(self):
         return f'Node({self.value})'
@@ -55,7 +56,6 @@ class BinTree():
         """Removes a node from the tree"""
         for value in values:
             parent, node = self.find2(value, value)
-            print('parent, node =', parent, node, node.left, node.right)
             # if node is None then value was not found
             if node:
                 # n will replace node
@@ -68,7 +68,6 @@ class BinTree():
                     n.right = node.right
                 else:
                     p, n = node.left, node.left.right
-                    print('p, n =', p, n)
                     while n.right:
                         p, n = n, n.right
                     p.right = n.left
