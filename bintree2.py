@@ -99,7 +99,6 @@ class BinTree():
             for i in range(0, maxdepth):
                 recurse(self.root.right)
                 print()
-        print('---')
         return self
 print()
 print()
