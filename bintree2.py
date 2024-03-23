@@ -11,13 +11,10 @@ class Node():
     def __str__(self):
         return f'Node({self.value})'
 
-# none = Node('☐')
 none = Node('▢')
 none.left = none
 none.right = none
 tee = '┴'
-tee2 = '┘└'
-# dash = '—'
 dash = '─'
 
 class BinTree():
