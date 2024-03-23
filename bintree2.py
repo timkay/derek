@@ -70,26 +70,26 @@ class BinTree():
         """Prints the tree"""
         if what is not None:
             print('---', what, '---')
-        if self.root.right is not None:
-            def get_maxdepth(node, depth = 0):
-                if node is None: return depth
-                return depth + 1 + max(get_maxdepth(node.left), get_maxdepth(node.right))
-            def recurse(node, depth=0, side=None, fill=' '):
-                if depth >= maxdepth: return
-                if i == depth:
-                    recurse(node.left or none, depth + 1, 'l', dash if side == 'r' else fill)
-                    print(node.value, end='')
-                    recurse(node.right or none, depth + 1, 'r', dash if side == 'l' else fill)
-                else:
-                    recurse(node.left or none, depth + 1, 'l', fill)
-                    print((dash if i == depth + 1 else fill) * len(str(node.value)), end='')
-                    recurse(node.right or none, depth + 1, 'r', fill)
-            maxdepth = get_maxdepth(self.root.right)
-            for i in range(0, maxdepth):
-                print(f'{i:<3}', end='')
-                recurse(self.root.right)
-                print()
+        if self.root.right is None: return self
+        def get_maxdepth(node, depth = 0):
+            if node is None: return depth
+            return depth + 1 + max(get_maxdepth(node.left), get_maxdepth(node.right))
+        def recurse(node, depth=0, side=None, fill=' '):
+            if depth >= maxdepth: return
+            if i == depth:
+                recurse(node.left or none, depth + 1, 'l', dash if side == 'r' else fill)
+                print(node.value, end='')
+                recurse(node.right or none, depth + 1, 'r', dash if side == 'l' else fill)
+            else:
+                recurse(node.left or none, depth + 1, 'l', fill)
+                print((dash if i == depth + 1 else fill) * len(str(node.value)), end='')
+                recurse(node.right or none, depth + 1, 'r', fill)
+        maxdepth = get_maxdepth(self.root.right)
+        for i in range(0, maxdepth):
+            print(f'{i:<3}', end='')
+            recurse(self.root.right)
             print()
+        print()
         return self
 print()
 print()
