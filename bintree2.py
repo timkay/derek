@@ -110,4 +110,3 @@ tree.remove(5).print('remove 5')
 tree.remove(6).print('remove 6')
 tree.remove(4, 5, 6).print('removed 4 5 6')
 print('done')
-{what
