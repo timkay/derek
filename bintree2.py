@@ -1,4 +1,4 @@
- math
+import math
 
 debug = False
 width = 7
