@@ -68,6 +68,7 @@ class BinTree():
                     parent.right = n
         return self
     def print(self, what=None):
+        return
         """Prints the tree"""
         if what is not None:
             print('---', what, '---')
