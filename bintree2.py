@@ -1,4 +1,4 @@
-import math
+ math
 
 debug = False
 width = 7
@@ -99,38 +99,39 @@ class BinTree():
             print()
         print()
         return self
-    def print(self, what=None):
-        if self.root.right is None: return self
-        def get_maxdepth(node, depth = 0):
-            if node is None: return depth
-            return depth + 1 + max(get_maxdepth(node.left), get_maxdepth(node.right))
-        def recurse(node, depth=0, side=None, fill=' '):
-            if depth >= maxdepth: return
-            if i == depth:
-                recurse(node.left or none, depth + 1, 'l', dash if side == 'r' else fill)
-                print(node.value, end='')
-                recurse(node.right or none, depth + 1, 'r', dash if side == 'l' else fill)
-            else:
-                recurse(node.left or none, depth + 1, 'l', fill)
-                s = fill * len(str(node.value))
-                if i == depth + 1:
-                    wid = len(str(node.value))
-                    half = int(wid / 2)
-                    s = dash * half + tee + dash * half
-                    if wid == 2 * half:
-                        s = dash * (half - 1) + tee + dash * half
-                print(s, end='')
-                recurse(node.right or none, depth + 1, 'r', fill)
-        maxdepth = get_maxdepth(self.root.right)
-        for i in range(0, maxdepth):
-            print(f'{i:<3}', end='')
-            recurse(self.root.right)
-            print()
-        return self
+def print(node):
+    if node is None: return
+    def get_maxdepth(node, depth = 0):
+        if node is None: return depth
+        return depth + 1 + max(get_maxdepth(node.left), get_maxdepth(node.right))
+    def recurse(node, depth=0, side=None, fill=' '):
+        if depth >= maxdepth: return
+        if i == depth:
+            recurse(node.left or none, depth + 1, 'l', dash if side == 'r' else fill)
+            print(node.value, end='')
+            recurse(node.right or none, depth + 1, 'r', dash if side == 'l' else fill)
+        else:
+            recurse(node.left or none, depth + 1, 'l', fill)
+            s = fill * len(str(node.value))
+            if i == depth + 1:
+                wid = len(str(node.value))
+                half = int(wid / 2)
+                s = dash * half + tee + dash * half
+                if wid == 2 * half:
+                    s = dash * (half - 1) + tee + dash * half
+            print(s, end='')
+            recurse(node.right or none, depth + 1, 'r', fill)
+    maxdepth = get_maxdepth(self.root.right)
+    for i in range(0, maxdepth):
+        print(f'{i:<3}', end='')
+        recurse(self.root.right)
+        print()
+    return
 print()
 print()
 tree = BinTree()
 tree.add(3, 1, 4, 1, 5, 9, 2, 6).print('added digits of pi')
+print(tree.root.right)
 tree.add(999999).print('added 999999')
 tree.add(3).print('added 3, which matches root')
 tree.add(1, 2, 3, 4, 5, 6).print('added sequence 1..6')
