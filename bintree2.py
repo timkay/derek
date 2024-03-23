@@ -99,7 +99,7 @@ class BinTree():
             print()
         print()
         return self
-def print(node):
+def print_tree(node):
     if node is None: return
     def get_maxdepth(node, depth = 0):
         if node is None: return depth
@@ -131,7 +131,7 @@ print()
 print()
 tree = BinTree()
 tree.add(3, 1, 4, 1, 5, 9, 2, 6).print('added digits of pi')
-print(tree.root.right)
+print_tree(tree.root.right)
 tree.add(999999).print('added 999999')
 tree.add(3).print('added 3, which matches root')
 tree.add(1, 2, 3, 4, 5, 6).print('added sequence 1..6')
