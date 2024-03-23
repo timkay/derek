@@ -77,7 +77,7 @@ class BinTree():
                 if depth >= maxdepth: return
                 if i == depth:
                     recurse(node.left or none, depth + 1, 'l', '-' if side == 'r' else fill)
-                    print(f' {node.value}', end='')
+                    print(f'{node.value}', end='')
                     recurse(node.right or none, depth + 1, 'r', '-' if side == 'l' else fill)
                 else:
                     recurse(node.left or none, depth + 1, 'l', fill)
