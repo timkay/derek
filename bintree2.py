@@ -124,7 +124,7 @@ def print_tree(node):
     maxdepth = get_maxdepth(node)
     for i in range(0, maxdepth):
         print(f'{i:<3}', end='')
-        recurse(self.root.right)
+        recurse(node)
         print()
     return
 print()
