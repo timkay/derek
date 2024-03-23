@@ -131,7 +131,6 @@ def print_tree(node):
         recurse(node)
         print()
     print()
-    return
 
 print()
 print()
