@@ -90,7 +90,7 @@ class BinTree():
                 if i == depth + 1:
                     half = int(len(str(node.value)) / 2)
                     s = dash * half + dash * half
-                    print(tee * n, end='')
+                    print(s, end='')
                 else:
                     print(fill * len(str(node.value)), end='')
                 recurse(node.right or none, depth + 1, 'r', fill)
