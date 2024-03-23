@@ -20,7 +20,6 @@ dash = '─'
 class BinTree():
     def __init__(self):
         self.root = Node(-math.inf)
-        print('root', self.root)
     def find2(self, pivot, value=None):
         """
         Finds a parent and node in the tree, if a matching value exists.
