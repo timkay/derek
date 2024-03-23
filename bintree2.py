@@ -131,13 +131,13 @@ def print_tree(node):
         print(f'{i:<3}', end='')
         recurse(node)
         print()
+    print()
     return
 
 print()
 print()
 tree = BinTree()
 tree.add(3, 1, 4, 1, 5, 9, 2, 6).print('added digits of pi')
-print_tree(tree.root.right)
 tree.add(999999).print('added 999999')
 tree.add(3).print('added 3, which matches root')
 tree.add(1, 2, 3, 4, 5, 6).print('added sequence 1..6')
