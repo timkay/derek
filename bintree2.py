@@ -68,7 +68,7 @@ class BinTree():
     def print(self, what=None):
         """Prints the tree"""
         if what is not None:
-            print('---', what, '-' * (69 - len(what)))
+            print('---', what, '---')
         if self.root.right is not None:
             def get_maxdepth(node, depth = 0):
                 if node is None: return depth
@@ -88,6 +88,7 @@ class BinTree():
                 print(f'{i:<4}', end='')
                 recurse(self.root.right)
                 print()
+            print()
         return self
 print()
 print()
