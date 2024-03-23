@@ -16,6 +16,8 @@ none = Node('▢')
 none.left = none
 none.right = none
 tee = '┴'
+tee1 = '┘'
+tee2  '└'
 # dash = '—'
 dash = '─'
 
@@ -85,7 +87,11 @@ class BinTree():
                 recurse(node.right or none, depth + 1, 'r', dash if side == 'l' else fill)
             else:
                 recurse(node.left or none, depth + 1, 'l', fill)
-                print((tee if i == depth + 1 else fill) * len(str(node.value)), end='')
+                if i == depth + 1:
+                    print(tee * len(str(node.value)), end='')
+                    pass
+                else:
+                    print(fill * len(str(node.value)), end='')
                 recurse(node.right or none, depth + 1, 'r', fill)
         maxdepth = get_maxdepth(self.root.right)
         for i in range(0, maxdepth):
