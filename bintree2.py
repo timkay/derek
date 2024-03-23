@@ -15,6 +15,7 @@ none = Node('☐')
 none.left = none
 none.right = none
 dash = '—'
+dash = '-'
 
 class BinTree():
     def __init__(self):
