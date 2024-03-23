@@ -17,7 +17,7 @@ none.left = none
 none.right = none
 tee = '┴'
 tee1 = '┘'
-tee2  '└'
+tee2 = '└'
 # dash = '—'
 dash = '─'
 
