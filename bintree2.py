@@ -92,8 +92,7 @@ class BinTree():
                     if wid == 2 * half + 1:
                         s = dash * half + tee + dash * half
                     else:
-                        half -= 1
-                        s = dash * half + tee2 + dash * half
+                        s = dash * (half - 1) + tee + dash * half
                     print(s, end='')
                 else:
                     print(fill * len(str(node.value)), end='')
