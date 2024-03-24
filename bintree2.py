@@ -1,4 +1,4 @@
-import math
+eimport math
 
 debug = False
 width = 7
@@ -136,7 +136,7 @@ print()
 print()
 tree = BinTree()
 tree.add(3, 1, 4, 1, 5, 9, 2, 6).print('added digits of pi')
-tree.add(999999).print('added 999999')
+tree.add(3.999995).print('added 3.999995')
 tree.add(3).print('added 3, which matches root')
 tree.add(1, 2, 3, 4, 5, 6).print('added sequence 1..6')
 print('find(2) -->', tree.find(2))
