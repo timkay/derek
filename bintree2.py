@@ -70,8 +70,8 @@ class BinTree():
         """Prints the tree"""
         if what is not None:
             print('---', what, '---')
-        print_tree(self.root.right)
-        return self
+        # print_tree(self.root.right)
+        # return self
         if self.root.right is None: return self
         def get_depth(node, level = 0):
             if node is None: return level
