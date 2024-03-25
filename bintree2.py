@@ -96,9 +96,9 @@ def print_tree(node):
                 s = dash * half + tee + dash * half
                 if wid == 2 * half:
                     s = dash * (half - 1) + tee + dash * half
-            if leaf:
-                fill = 'O'
-                s = s.replace(r'.', 'x')
+            # if leaf:
+            #     fill = 'O'
+            #     s = s.replace(r'.', 'x')
             print(s, end='')
             recurse(node.right or none, level + 1, leaf or 'r', fill)
     depth = get_depth(node)
