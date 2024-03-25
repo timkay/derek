@@ -97,6 +97,7 @@ def print_tree(node):
                 if wid == 2 * half:
                     s = dash * (half - 1) + tee + dash * half
             if leaf:
+                fill = 'O'
                 s = s.replace(r'.', 'x')
             print(s, end='')
             recurse(node.right or none, level + 1, leaf or 'r', fill)
