@@ -70,35 +70,7 @@ class BinTree():
         """Prints the tree"""
         if what is not None:
             print('---', what, '---')
-        # print_tree(self.root.right)
-        # return self
-        if self.root.right is None: return self
-        def get_depth(node, level = 0):
-            if node is None: return level
-            return level + 1 + max(get_depth(node.left), get_depth(node.right))
-        def recurse(node, level=0, side=None, fill=' '):
-            if level >= depth: return
-            if i == level:
-                recurse(node.left or none, level + 1, 'l', dash if side == 'r' else fill)
-                print(node.value, end='')
-                recurse(node.right or none, level + 1, 'r', dash if side == 'l' else fill)
-            else:
-                recurse(node.left or none, level + 1, 'l', fill)
-                s = fill * len(str(node.value))
-                if i == level + 1:
-                    wid = len(str(node.value))
-                    half = int(wid / 2)
-                    s = dash * half + tee + dash * half
-                    if wid == 2 * half:
-                        s = dash * (half - 1) + tee + dash * half
-                print(s, end='')
-                recurse(node.right or none, level + 1, 'r', fill)
-        depth = get_depth(self.root.right)
-        for i in range(0, depth):
-            print(f'{i:<3}', end='')
-            recurse(self.root.right)
-            print()
-        print()
+        print_tree(self.root.right)
         return self
 
 # The print tree code is isolated here to post on StackOverflow
