@@ -90,8 +90,8 @@ def print_tree(node):
         else:
             recurse(node.left or none, level + 1, leaf or 'l', fill)
             s = fill * len(str(node.value))
-            if side == 'n':
-                s = 'Z' * len(s)
+            # if side == 'n':
+            #     s = 'Z' * len(s)
             elif i == level + 1:
                 wid = len(str(node.value))
                 half = int(wid / 2)
