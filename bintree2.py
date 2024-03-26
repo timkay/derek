@@ -90,10 +90,11 @@ def print_tree(node):
             recurse(node.left or none, level + 1, 'l', fill)
             s = fill * len(str(node.value))
             if i == level + 1:
-                wid = len(str(node.value))
+                wid = len(str(node.value)) - 1
                 half = int(wid / 2)
                 s = dash * half + tee + dash * half
-                if wid == 2 * half: s = s[1:]
+                if wid == 2 * half: s += dash
+                # s = dash * len(str(node.value))
             print(s, end='')
             recurse(node.right or none, level + 1, 'r', fill)
     depth = get_depth(node)
