@@ -92,7 +92,7 @@ def print_tree(node):
             s = fill * len(str(node.value))
             # if side == 'n':
             #     s = 'Z' * len(s)
-            elif i == level + 1:
+            if i == level + 1:
                 wid = len(str(node.value))
                 half = int(wid / 2)
                 s = dash * half + tee + dash * half
