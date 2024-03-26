@@ -90,14 +90,14 @@ def print_tree(node):
         else:
             recurse(node.left or none, level + 1, leaf or 'l', fill)
             s = fill * len(str(node.value))
-            if i == level + 1:
+            if side == 'b':
+                s = 'Z' * len(s)
+            elif i == level + 1:
                 wid = len(str(node.value))
                 half = int(wid / 2)
                 s = dash * half + tee + dash * half
                 if wid == 2 * half:
                     s = dash * (half - 1) + tee + dash * half
-            if side == 'n':
-                s = 'Z' * len(s)
             print(s, end='')
             recurse(node.right or none, level + 1, leaf or 'r', fill)
     depth = get_depth(node)
