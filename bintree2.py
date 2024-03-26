@@ -92,7 +92,7 @@ def print_tree(node):
             if i == level + 1:
                 wid = len(str(node.value))
                 half = int((wid - 1) / 2)
-                s = dash * half + tee + dash * half + dash if wid % 2 == 0 else ''
+                s = dash * half + tee + dash * half + (dash if wid % 2 == 0 else '')
             print(s, end='')
             recurse(node.right or none, level + 1, 'r', fill)
     depth = get_depth(node)
