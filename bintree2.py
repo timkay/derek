@@ -11,10 +11,8 @@ class Node():
     def __str__(self):
         return f'Node({self.value})'
 
-blank = Node(' ')
-blank.left, blank.right = blank, blank
 none = Node('▢')
-none.left, none.right = blank, blank
+none.left, none.right = none, none
 tee = '┴'
 dash = '─'
 
