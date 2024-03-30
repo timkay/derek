@@ -2,19 +2,20 @@ import math
 
 debug = False
 width = 7
-
-none = Node('▢')
-none.left, none.right = none, none
 tee = '┴'
 dash = '─'
 
 class Node():
+    none = None
     def __init__(self, value):
         self.value = value
         self.left = none
         self.right = none
     def __str__(self):
         return f'Node({self.value})'
+
+none = Node.none = Node('▢')
+none.left, none.right = none, none
 
 class BinTree():
     def __init__(self):
