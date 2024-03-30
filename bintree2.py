@@ -16,8 +16,8 @@ class Node():
     def __str__(self):
         return f'Node({self.value})'
 
-none, none.left, none.right = Node('▢'), none, none
-# none.left, none.right = none, none
+none = Node('▢')
+none.left, none.right = none, none
 
 class BinTree():
     def __init__(self):
