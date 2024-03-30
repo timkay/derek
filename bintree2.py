@@ -88,7 +88,7 @@ def print_tree(node):
         else:
             recurse(node.left or none, level + 1, 'n' if node == none else 'l', fill)
             s = fill * len(str(node.value))
-            if i == level + 1:
+            if side != 'n' and i == level + 1:
                 wid = len(str(node.value))
                 half = (wid - 1) // 2
                 if side == 'n':
