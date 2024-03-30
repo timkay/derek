@@ -4,6 +4,7 @@ debug = False
 width = 7
 tee = '┴'
 dash = '─'
+blorch = '▢'
 
 none = None
 
@@ -15,20 +16,20 @@ class Node():
     def __str__(self):
         return f'Node({self.value})'
 
-none = Node('▢')
+none = Node(blorch)
 none.left, none.right = none, none
 
 class BinTree():
     def __init__(self):
         self.root = Node(-math.inf)
-    def find2(self, pivot, value=none):
+    def find2(self, pivot, value=blorch):
         """
         Finds a parent and node in the tree, if a matching value exists.
         Otherwise, returns the parent (and None) where the value can be added.
         Pivot on math.-inf or math.inf to find the left-most or right-most child.
         """
         parent, node = self.root, self.root.right
-        while node != none and node.value != value:
+        while node.value != value:
             parent, node = node, node.left if pivot < node.value else node.right
         return parent, node
     def find(self, value):
