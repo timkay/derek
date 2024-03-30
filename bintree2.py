@@ -12,8 +12,7 @@ class Node():
         return f'Node({self.value})'
 
 none = Node('▢')
-none.left = none
-none.right = none
+none.left, none.right = none, none
 tee = '┴'
 dash = '─'
 
@@ -83,18 +82,21 @@ def print_tree(node):
     def recurse(node, level=0, side=None, fill=' '):
         if level >= depth: return
         if i == level:
-            recurse(node.left or none, level + 1, 'l', dash if side == 'r' else fill)
-            print(node.value, end='')
-            recurse(node.right or none, level + 1, 'r', dash if side == 'l' else fill)
+            recurse(node.left or none, level + 1, 'n' if node == none else 'l', dash if side == 'r' else fill)
+            print(' ' * len(str(node.value)) if side == 'n' else node.value, end='')
+            recurse(node.right or none, level + 1, 'n' if node == none else 'r', dash if side == 'l' else fill)
         else:
-            recurse(node.left or none, level + 1, 'l', fill)
+            recurse(node.left or none, level + 1, 'n' if node == none else 'l', fill)
             s = fill * len(str(node.value))
-            if i == level + 1:
+            if i == level + 1 and node != none:
                 wid = len(str(node.value))
                 half = (wid - 1) // 2
-                s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
+                if side == 'n':
+                    s = ' ' * wid
+                else:
+                    s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
             print(s, end='')
-            recurse(node.right or none, level + 1, 'r', fill)
+            recurse(node.right or none, level + 1, 'n' if node == none else 'r', fill)
     depth = get_depth(node)
     for i in range(0, depth):
         print(f'{i:<3}', end='')
@@ -112,13 +114,13 @@ tree.add(3).print('added 3, which matches root')
 tree.add(1, 2, 3, 4, 5, 6).print('added sequence 1..6')
 # print('find(2) -->', tree.find(2))
 # print('find(88) -->', tree.find(88))
-tree.remove(3).print('removed 3')
-tree.remove(3).print('removed 3')
-tree.remove(3).print('removed 3')
-tree.remove(1).print('removed 1')
-tree.remove(1).print('removed 1')
-tree.remove(1).print('removed 1')
-tree.add(2.99).print('add 2.99')
+# tree.remove(3).print('removed 3')
+# tree.remove(3).print('removed 3')
+# tree.remove(3).print('removed 3')
+# tree.remove(1).print('removed 1')
+# tree.remove(1).print('removed 1')
+# tree.remove(1).print('removed 1')
+# tree.add(2.99).print('add 2.99')
 # tree.remove(4).print('remove 4')
 # tree.remove(5).print('remove 5')
 # tree.remove(6).print('remove 6')
