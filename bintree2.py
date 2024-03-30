@@ -88,13 +88,10 @@ def print_tree(node):
             print(fill * len(str(node.value)) if side == 'n' else node.value, end='')
         else:
             s = fill * len(str(node.value))
-            if i == level + 1 and node is not none:
+            if side != 'n' and i == level + 1 and node is not none:
                 wid = len(str(node.value))
                 half = (wid - 1) // 2
-                if side == 'n':
-                    s = ' ' * wid
-                else:
-                    s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
+                s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
             print(s, end='')
         recurse(node.right, level + 1, 'n' if node is none else 'r', dash if i == level and side == 'l' else fill)
     depth = get_depth(node)
@@ -114,12 +111,12 @@ tree.add(3).print('added 3, which matches root')
 tree.add(1, 2, 3, 4, 5, 6).print('added sequence 1..6')
 # print('find(2) -->', tree.find(2))
 # print('find(88) -->', tree.find(88))
-# tree.remove(3).print('removed 3')
-# tree.remove(3).print('removed 3')
-# tree.remove(3).print('removed 3')
-# tree.remove(1).print('removed 1')
-# tree.remove(1).print('removed 1')
-# tree.remove(1).print('removed 1')
+tree.remove(3).print('removed 3')
+tree.remove(3).print('removed 3')
+tree.remove(3).print('removed 3')
+tree.remove(1).print('removed 1')
+tree.remove(1).print('removed 1')
+tree.remove(1).print('removed 1')
 # tree.add(2.99).print('add 2.99')
 # tree.remove(4).print('remove 4')
 # tree.remove(5).print('remove 5')
