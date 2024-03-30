@@ -91,7 +91,7 @@ def print_tree(node):
             if i == level + 1:
                 wid = len(str(node.value))
                 half = (wid - 1) // 2
-                if False and side == 'b':
+                if side == 'b':
                     s = ' ' * wid
                 else:
                     s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
