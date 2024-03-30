@@ -14,7 +14,7 @@ class Node():
 blank = Node(' ')
 blank.left, blank.right = blank, blank
 none = Node('▢')
-node.left, node.right = blank, blank
+none.left, none.right = blank, blank
 tee = '┴'
 dash = '─'
 
