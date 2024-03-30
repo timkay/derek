@@ -82,21 +82,21 @@ def print_tree(node):
     def recurse(node, level=0, side=None, fill=' '):
         if level >= depth: return
         if i == level:
-            recurse(node.left or none, level + 1, 'b' if node == none else 'l', dash if side == 'r' else fill)
-            print(' ' * len(str(node.value)) if side == 'b' else node.value, end='')
-            recurse(node.right or none, level + 1, 'b' if node == none else 'r', dash if side == 'l' else fill)
+            recurse(node.left or none, level + 1, 'n' if node == none else 'l', dash if side == 'r' else fill)
+            print(' ' * len(str(node.value)) if side == 'n' else node.value, end='')
+            recurse(node.right or none, level + 1, 'n' if node == none else 'r', dash if side == 'l' else fill)
         else:
-            recurse(node.left or none, level + 1, 'b' if node == none else 'l', fill)
+            recurse(node.left or none, level + 1, 'n' if node == none else 'l', fill)
             s = fill * len(str(node.value))
             if i == level + 1:
                 wid = len(str(node.value))
                 half = (wid - 1) // 2
-                if side == 'b':
+                if side == 'n':
                     s = ' ' * wid
                 else:
                     s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
             print(s, end='')
-            recurse(node.right or none, level + 1, 'b' if node == none else 'r', fill)
+            recurse(node.right or none, level + 1, 'n' if node == none else 'r', fill)
     depth = get_depth(node)
     for i in range(0, depth):
         print(f'{i:<3}', end='')
