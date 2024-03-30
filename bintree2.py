@@ -88,13 +88,10 @@ def print_tree(node):
             print(fill * len(str(node.value)) if side == 'n' else node.value, end='')
         else:
             s = fill * len(str(node.value))
-            if i == level + 1 and node is not none:
+            if side != 'n' and i == level + 1 and node is not none:
                 wid = len(str(node.value))
                 half = (wid - 1) // 2
-                if side == 'n':
-                    s = fill * wid
-                else:
-                    s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
+                s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
             print(s, end='')
         recurse(node.right, level + 1, 'n' if node is none else 'r', dash if i == level and side == 'l' else fill)
     depth = get_depth(node)
