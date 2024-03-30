@@ -5,16 +5,18 @@ width = 7
 tee = '┴'
 dash = '─'
 
+none = None
+
 class Node():
     none = None
     def __init__(self, value):
         self.value = value
-        self.left = Node.none
-        self.right = Node.none
+        self.left = none
+        self.right = none
     def __str__(self):
         return f'Node({self.value})'
 
-none = Node.none = Node('▢')
+none = Node('▢')
 none.left, none.right = none, none
 
 class BinTree():
