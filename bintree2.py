@@ -3,30 +3,30 @@ import math
 debug = False
 width = 7
 
-class Node():
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
-    def __str__(self):
-        return f'Node({self.value})'
-
 none = Node('▢')
 none.left, none.right = none, none
 tee = '┴'
 dash = '─'
 
+class Node():
+    def __init__(self, value):
+        self.value = value
+        self.left = none
+        self.right = none
+    def __str__(self):
+        return f'Node({self.value})'
+
 class BinTree():
     def __init__(self):
         self.root = Node(-math.inf)
-    def find2(self, pivot, value=None):
+    def find2(self, pivot, value=none):
         """
         Finds a parent and node in the tree, if a matching value exists.
         Otherwise, returns the parent (and None) where the value can be added.
         Pivot on math.-inf or math.inf to find the left-most or right-most child.
         """
         parent, node = self.root, self.root.right
-        while node and node.value != value:
+        while node != none and node.value != value:
             parent, node = node, node.left if pivot < node.value else node.right
         return parent, node
     def find(self, value):
@@ -47,16 +47,16 @@ class BinTree():
             # if node is None then value was not found
             if node:
                 # n will replace node
-                if node.left is None:
+                if node.left is none:
                     n = node.right
-                # elif node.right is None:
+                # elif node.right is none:
                 #     n = node.left
-                elif node.left.right is None:
+                elif node.left.right is none:
                     n = node.left
                     n.right = node.right
                 else:
                     p, n = node.left, node.left.right
-                    while n.right:
+                    while n.right is not none:
                         p, n = n, n.right
                     p.right = n.left
                     n.left, n.right = node.left, node.right
@@ -75,20 +75,20 @@ class BinTree():
 # The print tree code is isolated here to post on StackOverflow
 
 def print_tree(node):
-    if node is None: return
+    if node is none: return
     def get_depth(node, level = 0):
-        if node is None: return level
+        if node is none: return level
         return level + 1 + max(get_depth(node.left), get_depth(node.right))
     def recurse(node, level=0, side=None, fill=' '):
         if level >= depth: return
         if i == level:
-            recurse(node.left or none, level + 1, 'n' if node == none else 'l', dash if side == 'r' else fill)
+            recurse(node.left, level + 1, 'n' if node is none else 'l', dash if side == 'r' else fill)
             print(' ' * len(str(node.value)) if side == 'n' else node.value, end='')
-            recurse(node.right or none, level + 1, 'n' if node == none else 'r', dash if side == 'l' else fill)
+            recurse(node.right, level + 1, 'n' if node is none else 'r', dash if side == 'l' else fill)
         else:
-            recurse(node.left or none, level + 1, 'n' if node == none else 'l', fill)
+            recurse(node.left, level + 1, 'n' if node is none else 'l', fill)
             s = fill * len(str(node.value))
-            if i == level + 1 and node != none:
+            if i == level + 1 and node is not none:
                 wid = len(str(node.value))
                 half = (wid - 1) // 2
                 if side == 'n':
@@ -96,7 +96,7 @@ def print_tree(node):
                 else:
                     s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
             print(s, end='')
-            recurse(node.right or none, level + 1, 'n' if node == none else 'r', fill)
+            recurse(node.right, level + 1, 'n' if node is none else 'r', fill)
     depth = get_depth(node)
     for i in range(0, depth):
         print(f'{i:<3}', end='')
