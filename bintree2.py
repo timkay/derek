@@ -91,7 +91,10 @@ def print_tree(node):
             if i == level + 1:
                 wid = len(str(node.value))
                 half = (wid - 1) // 2
-                s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
+                if side == 'b':
+                    s = ' ' * half + ' ' + ' ' * half + ' ' * (wid % 2 == 0)
+                else:
+                    s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
             print(s, end='')
             recurse(node.right or none, level + 1, 'b' if node == none else 'r', fill)
     depth = get_depth(node)
