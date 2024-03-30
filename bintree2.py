@@ -5,7 +5,7 @@ width = 7
 tee = '┴'
 dash = '─'
 
-none = None
+# none = None
 
 class Node():
     none = None
