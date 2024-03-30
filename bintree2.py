@@ -83,7 +83,7 @@ def print_tree(node):
         if level >= depth: return
         if i == level:
             recurse(node.left or none, level + 1, 'b' if node == none else 'l', dash if side == 'r' else fill)
-            print(node.value, end='')
+            print(' ' * len(str(node.value)) if node == none else node.value, end='')
             recurse(node.right or none, level + 1, 'b' if node == none else 'r', dash if side == 'l' else fill)
         else:
             recurse(node.left or none, level + 1, 'b' if node == none else 'l', fill)
@@ -92,7 +92,7 @@ def print_tree(node):
                 wid = len(str(node.value))
                 half = (wid - 1) // 2
                 if side == 'b':
-                    s = ' ' * half + ' ' + ' ' * half + ' ' * (wid % 2 == 0)
+                    s = ' ' * wid
                 else:
                     s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
             print(s, end='')
