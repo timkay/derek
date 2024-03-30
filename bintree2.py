@@ -80,7 +80,7 @@ class BinTree():
 def print_tree(node):
     if node is none: return
     def get_depth(node, level = 0):
-        if node is none: return level + 1
+        if node is none: return level # + 1 # shows None children at lowest level
         return level + 1 + max(get_depth(node.left), get_depth(node.right))
     def recurse(node, level=0, side=None, fill=' '):
         if level >= depth: return
