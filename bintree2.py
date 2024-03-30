@@ -9,8 +9,8 @@ class Node():
     none = None
     def __init__(self, value):
         self.value = value
-        self.left = none
-        self.right = none
+        self.left = Node.none
+        self.right = Node.none
     def __str__(self):
         return f'Node({self.value})'
 
