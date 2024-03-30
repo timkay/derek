@@ -92,7 +92,7 @@ def print_tree(node):
                 wid = len(str(node.value))
                 half = (wid - 1) // 2
                 if side == 'n':
-                    s = ' ' * wid
+                    s = fill * wid
                 else:
                     s = dash * half + tee + dash * half + dash * (wid % 2 == 0)
             print(s, end='')
